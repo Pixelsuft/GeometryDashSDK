@@ -15,6 +15,7 @@ set_target_properties(cocos2d PROPERTIES
 )
 
 add_subdirectory(minhook)
+add_subdirectory(gd.h)
 
 target_include_directories(cocos2d INTERFACE 
   cocos2dx
@@ -24,6 +25,8 @@ target_include_directories(cocos2d INTERFACE
   cocos2dx/platform/third_party/win32
   cocos2dx/platform/third_party/win32/OGLES
   extensions
+  gd.h
+  gd.h/include
 )
 
 target_link_libraries(cocos2d INTERFACE
