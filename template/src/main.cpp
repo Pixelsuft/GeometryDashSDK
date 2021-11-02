@@ -1,14 +1,15 @@
 #define WIN32_LEAN_AND_MEAN
 #define CONSOLE
-
-
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+#include <queue>
+#include <mutex>
 #include <windows.h>
 #include <cocos2d.h>
 #include <MinHook.h>
-#include <queue>
-#include <mutex>
-#include <fstream>
-#include <sstream>
+#include <gd.h>
 
 
 using namespace std;
