@@ -1,2 +1,2 @@
 # GeometryDashSDK
-Is cocos-headers with MinHook
+Is cocos-headers with MinHook and GD.h

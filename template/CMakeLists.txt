@@ -15,6 +15,7 @@ set_target_properties(cocos2d PROPERTIES
 )
 
 add_subdirectory(minhook)
+add_subdirectory(gd.h)
 
 target_include_directories(cocos2d INTERFACE 
   cocos2dx
@@ -47,4 +48,5 @@ target_link_libraries(%PROJECT_NAME%
   ${CMAKE_SOURCE_DIR}/cocos2dx/libcocos2d.lib
   minhook
   cocos2d
+  gd.h
 )

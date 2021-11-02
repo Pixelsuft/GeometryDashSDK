@@ -42,9 +42,9 @@ project_name = sys.argv[1]
 clear_project_name = project_name.lower().strip()
 
 
-if clear_project_name == 'tools' or clear_project_name == 'template':
+'''if clear_project_name == 'tools' or clear_project_name == 'template':
     print(f'[Error]: Can\'t Use Project Name "{project_name}"')
-    sys.exit(1)
+    sys.exit(1)'''
 
 
 if ' ' in project_name:
@@ -52,7 +52,17 @@ if ' ' in project_name:
     sys.exit(1)
 
 
-if os.path.isdir(project_name):
+projects_dir = os.path.join(os.getcwd(), 'projects')
+
+
+if not os.path.isdir(projects_dir):
+    os.mkdir(projects_dir)
+
+
+project_dir = os.path.join(projects_dir, project_name)
+
+
+if os.path.isdir(project_dir):
     print(f'[Warning]: Project "{project_name}" Is Already Exists')
     while True:
         input_ = input('[Prompt]: Do You Want To Continue? [Y/n]').lower().strip()
@@ -60,17 +70,17 @@ if os.path.isdir(project_name):
             break
         if input_ == 'n':
             sys.exit(0)
-    shutil.rmtree(project_name)
+    shutil.rmtree(project_dir)
 
 
 print('[Info]: Copying Template')
-shutil.copytree(os.path.join(os.getcwd(), 'template'), project_name)
+shutil.copytree(os.path.join(os.getcwd(), 'template'), project_dir)
 
 
 print('[Info]: Editing "CMakeLists.txt"')
 
 
-cmake_lists_path = os.path.join(os.getcwd(), project_name, 'CMakeLists.txt')
+cmake_lists_path = os.path.join(project_dir, 'CMakeLists.txt')
 f = open(cmake_lists_path, 'r')
 cmake_lists = f.read()
 f.close()
